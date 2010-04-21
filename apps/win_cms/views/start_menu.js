@@ -17,7 +17,29 @@ WinCms.StartMenuView = SC.View.design(
   childViews: "programsList".w(),
   
   programsList: SC.ListView.extend({
-    content: ["Home", "About"]
+    content: [
+      SC.Object.create({
+        title: "Home",
+        menu_id: 1
+      }),
+      SC.Object.create({
+        title: "About",
+        menu_id: 2
+      }),
+      SC.Object.create({
+        title: "Help"
+      }),
+      SC.Object.create({
+        title: "Contact"
+      }),
+      SC.Object.create({
+        title: "Products"
+      })
+    ],
+    contentValueKey: 'title',
+    actOnSelect: true,
+    action: "menuItemSelected",
+    target: WinCms
   })
   
 

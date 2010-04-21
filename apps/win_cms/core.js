@@ -40,6 +40,17 @@ WinCms = SC.Application.create(
     WinCms.getPath('mainPage.startMenuPopup').popup(target) ;
     // using this example instead, it does the same as above but recreates the view objects each time
     // WinCms.mainPage.startMenuPopup.create().popup(target) ;
+  },
+  
+  menuItemSelected: function(p1,p2) {
+    console.log(p1.toString());
+    console.log(p2.firstObject().toString());
+    console.log(p2.firstObject().get("title"));
+    console.log(p2.firstObject().get("menu_id"));
+    console.log(p2.get("length"));
+    
+    p1.parentView.parentView.remove();
+    // alert("Hello");
   }
 
 }) ;
