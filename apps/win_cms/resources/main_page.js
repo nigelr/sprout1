@@ -11,7 +11,7 @@ WinCms.mainPage = SC.Page.design({
   // Add childViews to this pane for views to display immediately on page 
   // load.
   mainPane: SC.MainPane.design({
-    childViews: 'labelView button1 button2'.w(),
+    childViews: 'labelView button1 button2 start'.w(),
     
     labelView: SC.LabelView.design({
       layout: { centerX: 0, centerY: 0, width: 200, height: 18 },
@@ -38,10 +38,24 @@ WinCms.mainPage = SC.Page.design({
       // default value is set and bindings will override this value
       value: YES
     }),
+
+    start: SC.ButtonView.design({
+      layout: { bottom: 0, left: 0, width: 200, height: 100},
+      title: "Start",
+      textAlign: SC.ALIGN_RIGHT,
+      // ation is the name of the method in the core.js (in this example)... Also needs a target which is the object the method exists in
+      action: 'showStartMenu',
+      target: WinCms
+    })
     
     // palette1: SC.PalettePane.design({
     //   layout: {left: 100, top: 200, witdh: 300, height: 300}
     // })
+  }),
+  
+  startMenuPopup: SC.PickerPane.design({
+    layout: {width: 100, height: 100},
+    contentView: WinCms.StartMenuView
   })
 
 });

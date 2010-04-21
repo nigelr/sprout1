@@ -33,6 +33,13 @@ WinCms = SC.Application.create(
     } else {
       return SC.REGULAR_WEIGHT ;
     }
-  }.property('labelsAreBold').cacheable()
+  }.property('labelsAreBold').cacheable(),
+  
+  showStartMenu: function(target) {
+    // using this example it creates the view once and reuses it
+    WinCms.getPath('mainPage.startMenuPopup').popup(target) ;
+    // using this example instead, it does the same as above but recreates the view objects each time
+    // WinCms.mainPage.startMenuPopup.create().popup(target) ;
+  }
 
 }) ;
